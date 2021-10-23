@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       data: [],
       loaded: false,
-      placeholder: "Loading.."
+      placeholder: "Loading..",
+      newTask: ''
     };
   }
 
@@ -29,6 +30,29 @@ class App extends Component {
         }
         return response.json();
       })
+      .then(data => {
+        this.setState(() => {
+          return {
+            data,
+            loaded: true
+          };
+        });
+      });
+  }
+
+  handleChange = (e) => {
+    this.setState({ newTask: e.target.value })
+  }
+
+  addTask = () => {
+    const newTask = { task: this.state.newTask, completed: false}
+    fetch("api/toDos/", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(newTask)
+    })
+    fetch("api/toDos")
+      .then(response => response.json())
       .then(data => {
         this.setState(() => {
           return {
@@ -56,9 +80,15 @@ class App extends Component {
             );
           })}
           <FormGroup row>
-            <Input name="task-input" id="task-input" sm={10} placeholder="Add a new task" />
+            <Input 
+              name="task-input" 
+              id="task-input" 
+              sm={10} 
+              placeholder="Add a new task"
+              onChange={this.handleChange} 
+            />
             <Col sm={2}>
-              <Button>Add</Button>
+              <Button onClick={this.addTask}>Add</Button>
             </Col>
           </FormGroup>
         </Form>
