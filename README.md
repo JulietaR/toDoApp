@@ -4,6 +4,14 @@
  
  Script toDoApp.sh sent by email. This allows to install all dependencies and run the apps.
  
+ When install and running:
+  - Frontend's React App: http://localhost:3000
+  - Django's admin: http://127.0.0.1:8000/admin
+        You have to login to access to the API
+           User: todoadmin
+           Password: ensolvers
+  - Backend's Django API: http://127.0.0.1:8000/api/toDos
+ 
  Requeriments satisfied:
   - Phase 1
   - Technologies (React & Django Rest Framework)
