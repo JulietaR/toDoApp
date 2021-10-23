@@ -51,16 +51,7 @@ class App extends Component {
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(newTask)
     })
-    fetch("api/toDos")
-      .then(response => response.json())
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
+    this.componentDidMount()
   }
 
   render() {
