@@ -11,7 +11,10 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Container,
 } from 'reactstrap';
+
+import styles from './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -100,8 +103,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <header>Ensolvers Exercise - Julieta Rivero</header>
+        <Container>        
         <Form>
-          <FormText>To-Do List</FormText>
+          <FormText id='list-title'>To-Do List</FormText>
           {this.state.data.map((toDos, index) => {
             return (
               <FormGroup check>
@@ -143,18 +148,28 @@ class App extends Component {
             );
           })}
           <FormGroup row>
+          <Col md={4}>
             <Input 
               name="task-input" 
-              id="task-input" 
-              sm={10} 
+              id="task-input"
+              class="buttons"
               placeholder="Add a new task"
               onChange={this.handleChange} 
             />
-            <Col sm={2}>
-              <Button onClick={this.addTask}>Add</Button>
+            </Col>
+            <Col md={3}>
+              <Button 
+                id='add-task'
+                class='buttons' 
+                color="primary" 
+                onClick={this.addTask}
+              >
+                Add
+              </Button>
             </Col>
           </FormGroup>
         </Form>
+        </Container>
       </div>
     )
   }

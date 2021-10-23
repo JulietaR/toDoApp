@@ -13,15 +13,38 @@
   }
 }
 
-.App-header {
+header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+#list-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: center;
+  font-size: 30px;
+  margin: 10px 10px 10px 0px;
+}
+
+a {
+  margin-left: 10px;
+}
+
+#task-input {
+  justify-content: center;
+  margin: 20px 0px 0px 0px;
+}
+
+#add-task {
+  justify-content: center;
+  margin: 20px 0px 0px 0px;
 }
 
 .App-link {
